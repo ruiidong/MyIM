@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyIM"
 include(":app")
- 
+include(":proxy")
+include(":base")
