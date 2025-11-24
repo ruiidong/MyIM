@@ -5,6 +5,8 @@ import com.example.myim.provider.AccountProvider
 import com.example.myim.provider.AppThemeProvider
 import com.example.myim.provider.ContextProvider
 import com.example.myim.ui.logic.MyIM
+import com.example.myim.utils.CoilUtils
+
 
 class MainApplication : Application() {
 
@@ -14,5 +16,6 @@ class MainApplication : Application() {
         AppThemeProvider.init(application = this)
         AccountProvider.init(application = this)
         MyIM.accountProvider.init(application = this)
+        CoilUtils.init()
     }
 }

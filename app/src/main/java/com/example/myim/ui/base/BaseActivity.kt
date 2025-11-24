@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.myim.provider.AppThemeProvider
+import com.example.myim.provider.ToastProvider
 import com.example.myim.ui.logic.AppTheme
 import com.example.myim.ui.theme.MyIMTheme
 
@@ -31,7 +32,9 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.statusBarColor = 0
         WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
         super.onCreate(savedInstanceState)
     }
 
@@ -79,6 +82,10 @@ open class BaseActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    protected fun showToast(msg: String) {
+        ToastProvider.showToast(context = this, msg = msg)
     }
 
     protected inline fun <reified T : Activity> startActivity() {

@@ -15,7 +15,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -90,6 +89,7 @@ private fun LoginPage(
     Scaffold(
         modifier = Modifier
             .fillMaxSize(),
+        containerColor = Color(0xFFFFFFFF),
         contentWindowInsets = WindowInsetsEmpty
     ) { innerPadding ->
         Box(
