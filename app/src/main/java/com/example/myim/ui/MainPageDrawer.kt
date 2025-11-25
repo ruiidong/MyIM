@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cabin
 import androidx.compose.material.icons.filled.ColorLens
+import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.Sailing
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -114,7 +115,7 @@ fun MainPageDrawer(viewState: MainPageDrawerViewState) {
                 )
                 SelectableItem(
                     text = "切换账号",
-                    icon = Icons.Filled.ColorLens,
+                    icon = Icons.Filled.Logout,
                     onClick = viewState.logout
                 )
             }

@@ -11,8 +11,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Sailing
+import androidx.compose.material.icons.rounded.Chat
+import androidx.compose.material.icons.rounded.ChatBubble
+import androidx.compose.material.icons.rounded.ChatBubbleOutline
 import androidx.compose.material.icons.rounded.ColorLens
+import androidx.compose.material.icons.rounded.Home
+import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.WbSunny
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBarItem
@@ -47,17 +53,17 @@ fun MainPageBottomBar(viewState: MainPageBottomBarViewState) {
             val unreadMessageCount: Long
             when (tab) {
                 MainPageTab.Conversation -> {
-                    icon = Icons.Rounded.WbSunny
+                    icon = Icons.Rounded.Chat
                     unreadMessageCount = viewState.unreadMessageCount
                 }
 
                 MainPageTab.Friendship -> {
-                    icon = Icons.Filled.Sailing
+                    icon = Icons.Filled.Person
                     unreadMessageCount = 0
                 }
 
                 MainPageTab.Person -> {
-                    icon = Icons.Rounded.ColorLens
+                    icon = Icons.Rounded.Home
                     unreadMessageCount = 0
                 }
             }

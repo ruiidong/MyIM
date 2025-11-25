@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -70,7 +71,7 @@ fun MainPageTopBar(
                         Icon(
                             modifier = Modifier
                                 .size(size = 26.dp),
-                            imageVector = Icons.Filled.MoreVert,
+                            imageVector = Icons.Filled.Add,
                             contentDescription = null
                         )
                     },
