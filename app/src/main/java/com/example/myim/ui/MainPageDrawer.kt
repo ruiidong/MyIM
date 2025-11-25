@@ -112,24 +112,6 @@ fun MainPageDrawer(viewState: MainPageDrawerViewState) {
                     icon = Icons.Filled.Cabin,
                     onClick = viewState.updateProfile
                 )
-                val themeName = when (viewState.appTheme) {
-                    Light -> {
-                        "日间主题"
-                    }
-
-                    Dark -> {
-                        "夜间主题"
-                    }
-
-                    Gray -> {
-                        "黑白主题"
-                    }
-                }
-                SelectableItem(
-                    text = themeName,
-                    icon = Icons.Filled.Sailing,
-                    onClick = viewState.switchTheme
-                )
                 SelectableItem(
                     text = "切换账号",
                     icon = Icons.Filled.ColorLens,
@@ -182,8 +164,6 @@ private fun SelectableItem(text: String, icon: ImageVector, onClick: () -> Unit)
 private fun Copyright(modifier: Modifier) {
     val copyright = remember {
         buildString {
-            append("公众号: 字节数组")
-            append("\n")
             append("versionCode: ")
             append("1.0")
         }

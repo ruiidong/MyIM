@@ -43,7 +43,6 @@ class MainViewModel : BaseViewModel() {
             appTheme = AppThemeProvider.appTheme,
             personProfile = MyIM.accountProvider.personProfile.value,
             previewImage = ::previewImage,
-            switchTheme = ::switchTheme,
             logout = ::logout,
             updateProfile = ::updateProfile
         )
@@ -130,12 +129,6 @@ class MainViewModel : BaseViewModel() {
         if (imageUrl.isNotBlank()) {
             PreviewImageActivity.navTo(context = context, imageUri = imageUrl)
         }
-    }
-
-    private fun switchTheme() {
-        val nextTheme = AppThemeProvider.appTheme.nextTheme()
-        drawerViewState = drawerViewState.copy(appTheme = nextTheme)
-        AppThemeProvider.onAppThemeChanged(appTheme = nextTheme)
     }
 
     private fun AppTheme.nextTheme(): AppTheme {

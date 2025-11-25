@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.GroupAdd
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -189,7 +190,7 @@ private fun FloatingActionButton(
         content = {
             Icon(
                 modifier = Modifier,
-                imageVector = Icons.Filled.Favorite,
+                imageVector = Icons.Filled.GroupAdd,
                 tint = Color(0xFFFFFFFF),
                 contentDescription = null
             )
