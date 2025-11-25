@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cabin
 import androidx.compose.material.icons.filled.ColorLens
@@ -26,19 +27,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myim.extend.clickableNoRipple
-import com.example.myim.ui.logic.AppTheme
-import com.example.myim.ui.logic.MainPageDrawerViewState
-import com.example.myim.ui.widgets.AnimateBouncyImage
-import kotlinx.coroutines.launch
+import com.example.myim.ui.logic.AppTheme.Light
 import com.example.myim.ui.logic.AppTheme.Dark
 import com.example.myim.ui.logic.AppTheme.Gray
-import com.example.myim.ui.logic.AppTheme.Light
+import com.example.myim.ui.logic.MainPageDrawerViewState
+import com.example.myim.ui.widgets.AnimateBouncyImage
+import com.example.myim.ui.widgets.ComponentImage
+import kotlinx.coroutines.launch
 
 @Composable
 fun MainPageDrawer(viewState: MainPageDrawerViewState) {
@@ -60,7 +62,7 @@ fun MainPageDrawer(viewState: MainPageDrawerViewState) {
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            AnimateBouncyImage(
+            ComponentImage(
                 modifier = Modifier
                     .statusBarsPadding()
                     .padding(start = 20.dp, top = 20.dp)
@@ -68,7 +70,6 @@ fun MainPageDrawer(viewState: MainPageDrawerViewState) {
                     .clickableNoRipple {
                         viewState.previewImage(viewState.personProfile.faceUrl)
                     },
-                key = viewState.drawerState.isOpen,
                 model = viewState.personProfile.faceUrl
             )
             Column(
@@ -172,7 +173,7 @@ private fun SelectableItem(text: String, icon: ImageVector, onClick: () -> Unit)
             text = text,
             fontSize = 17.sp,
             lineHeight = 18.sp,
-            color = Color(0xFF001018)
+            color =Color(0xFF001018)
         )
     }
 }
@@ -193,6 +194,6 @@ private fun Copyright(modifier: Modifier) {
         fontSize = 14.sp,
         lineHeight = 16.sp,
         textAlign = TextAlign.Center,
-        color = Color(0xFF001018)
+        color =Color(0xFF001018)
     )
 }

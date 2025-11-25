@@ -1,13 +1,11 @@
-package com.example.myim.ui.person
+package com.example.myim.ui.widgets
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -17,26 +15,28 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import com.example.myim.extend.clickableNoRipple
-import com.example.myim.ui.person.logic.PersonProfilePageViewState
-import com.example.myim.ui.widgets.ComponentImage
+import com.example.myim.extend.scrim
+import com.example.myim.ui.preview.PreviewImageActivity
 
 @Composable
-fun PersonProfilePage(pageViewState: PersonProfilePageViewState) {
-    val personProfile = pageViewState.personProfile
-    val faceUrl = personProfile.faceUrl
-    val title = personProfile.showName
-    val subtitle = personProfile.signature
-    val introduction = "ID: ${personProfile.id}"
+fun ProfilePanel(
+    title: String,
+    subtitle: String,
+    introduction: String,
+    avatarUrl: String,
+    content: @Composable BoxScope.() -> Unit
+) {
+    val context = LocalContext.current
     Box(
         modifier = Modifier
-            .fillMaxSize()
-            .background(color = Color(0xFFFFFFFF))
+            .fillMaxHeight()
     ) {
         Column(
             modifier = Modifier
@@ -47,18 +47,19 @@ fun PersonProfilePage(pageViewState: PersonProfilePageViewState) {
         ) {
             ComponentImage(
                 modifier = Modifier
-                    .clip(shape = CircleShape)
                     .size(size = 100.dp)
                     .clickableNoRipple {
-                        pageViewState.previewImage(faceUrl)
+                        if (avatarUrl.isNotBlank()) {
+                            PreviewImageActivity.navTo(context = context, imageUri = avatarUrl)
+                        }
                     },
-                model = faceUrl,
+                model = avatarUrl
             )
             Text(
                 modifier = Modifier
                     .padding(start = 10.dp, end = 10.dp, top = 10.dp),
                 text = title,
-                fontSize = 20.sp,
+                fontSize = 18.sp,
                 lineHeight = 21.sp,
                 textAlign = TextAlign.Center,
             )
@@ -77,6 +78,12 @@ fun PersonProfilePage(pageViewState: PersonProfilePageViewState) {
                 fontSize = 15.sp,
                 lineHeight = 16.sp,
                 textAlign = TextAlign.Center,
+            )
+            Box(
+                modifier = Modifier
+                    .zIndex(zIndex = 1f)
+                    .padding(top = 60.dp),
+                content = content
             )
         }
     }
