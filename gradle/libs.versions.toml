@@ -24,6 +24,7 @@ okhttp = "3.10.0"
 room = "2.7.0-alpha11"
 pagging = "3.3.6"
 ksp = "2.2.20-2.0.4"
+mmkv = "2.2.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -45,6 +46,7 @@ androidx-compose-runtime-annotation = { group = "androidx.compose.runtime", name
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
 
 tencent-imsdk = { module = "com.tencent.imsdk:imsdk-plus", version.ref = "tencent-imsdk" }
+tencent-mmkv = { group = "com.tencent", name = "mmkv", version.ref = "mmkv" }
 androidx-exifinterface = { group = "androidx.exifinterface", name = "exifinterface", version.ref = "exifinterface" }
 androidx-compose-material-icons = { module = "androidx.compose.material:material-icons-extended" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }

@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.paging.compose)
+    implementation(libs.tencent.mmkv)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

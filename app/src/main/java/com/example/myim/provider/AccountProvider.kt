@@ -1,9 +1,8 @@
 package com.example.myim.provider
 
 import android.app.Application
-import android.content.Context
-import android.content.SharedPreferences
-import androidx.core.content.edit
+import android.util.Log
+import com.tencent.mmkv.MMKV
 
 object AccountProvider {
 
@@ -13,28 +12,30 @@ object AccountProvider {
 
     private const val KEY_AUTO_LOGIN = "keyAutoLogin"
 
-    private lateinit var preferences: SharedPreferences
+
+    private lateinit var kv: MMKV
 
     fun init(application: Application) {
-        preferences = application.getSharedPreferences(KEY_GROUP, Context.MODE_PRIVATE)
+        val rootDir = MMKV.initialize(application)
+        kv = MMKV.defaultMMKV()
+
     }
 
     val lastLoginUserId: String
-        get() = preferences.getString(KEY_LAST_LOGIN_USER_ID, "") ?: ""
+        get() = kv.decodeString(KEY_LAST_LOGIN_USER_ID, "") ?: ""
 
     val canAutoLogin: Boolean
-        get() = preferences.getBoolean(KEY_AUTO_LOGIN, true)
+        get() = kv.decodeBool(KEY_AUTO_LOGIN, true)
 
     fun onUserLogin(userId: String) {
-        preferences.edit().apply {
-            putString(KEY_LAST_LOGIN_USER_ID, userId)
-            putBoolean(KEY_AUTO_LOGIN, true)
-            apply()
+        kv.apply {
+            encode(KEY_LAST_LOGIN_USER_ID, userId)
+            encode(KEY_AUTO_LOGIN, true)
         }
     }
 
     fun onUserLogout() {
-        preferences.edit { putBoolean(KEY_AUTO_LOGIN, false) }
+        kv.encode(KEY_AUTO_LOGIN, false)
     }
 
 }
