@@ -1,7 +1,6 @@
 package com.example.proxy
 
 import android.app.Application
-import android.util.Log
 import com.example.base.models.ActionResult
 import com.example.base.models.PersonProfile
 import com.example.base.models.ServerConnectState

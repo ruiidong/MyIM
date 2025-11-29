@@ -8,6 +8,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.example.myim.ui.new.NewPage
+import com.example.myim.ui.new.logic.NewViewModel
 import com.example.myim.ui.conversation.ConversationPage
 import com.example.myim.ui.conversation.logic.ConversationViewModel
 import com.example.myim.ui.friendship.FriendshipDialog
@@ -25,7 +27,8 @@ fun MainPage(
     mainViewModel: MainViewModel,
     conversationViewModel: ConversationViewModel,
     friendshipViewModel: FriendshipViewModel,
-    personProfileViewModel: PersonProfileViewModel
+    personProfileViewModel: PersonProfileViewModel,
+    newViewModel: NewViewModel
 ) {
     ModalNavigationDrawer(
         modifier = Modifier
@@ -66,6 +69,10 @@ fun MainPage(
 
                         MainPageTab.Friendship -> {
                             FriendshipPage(pageViewState = friendshipViewModel.pageViewState)
+                        }
+
+                        MainPageTab.New -> {
+                            NewPage(newViewModel = newViewModel)
                         }
 
                         MainPageTab.Person -> {

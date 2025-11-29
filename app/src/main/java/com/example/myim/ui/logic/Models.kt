@@ -8,6 +8,7 @@ import com.example.base.models.PersonProfile
 enum class MainPageTab {
     Conversation,
     Friendship,
+    New,
     Person;
 }
 

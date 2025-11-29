@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.devtools.ksp)
 }
 
 android {
@@ -35,10 +36,15 @@ android {
 dependencies {
     implementation(project(":base"))
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
-
+    implementation(libs.paging.compose)
     implementation(libs.tencent.imsdk)
+    implementation(libs.room.paging)
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.okhttp)
+    ksp("androidx.room:room-compiler:2.7.0-alpha11")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)

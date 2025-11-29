@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.base.models.ServerConnectState
 import com.example.myim.provider.AccountProvider
+import com.example.myim.ui.new.logic.NewViewModel
 import com.example.myim.ui.base.BaseActivity
 import com.example.myim.ui.conversation.logic.ConversationViewModel
 import com.example.myim.ui.friendship.logic.FriendshipViewModel
@@ -23,6 +24,8 @@ class MainActivity : BaseActivity() {
 
     private val friendshipViewModel by viewModels<FriendshipViewModel>()
 
+    private val newViewModel by viewModels<NewViewModel>()
+
     private val personProfileViewModel by viewModels<PersonProfileViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +35,7 @@ class MainActivity : BaseActivity() {
                 mainViewModel = mainViewModel,
                 conversationViewModel = conversationViewModel,
                 friendshipViewModel = friendshipViewModel,
+                newViewModel = newViewModel,
                 personProfileViewModel = personProfileViewModel
             )
         }

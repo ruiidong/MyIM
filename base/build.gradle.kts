@@ -34,6 +34,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.converter.gson)
+    implementation(libs.room.runtime)
+    implementation(libs.room.paging)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
